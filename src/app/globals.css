@@ -25,3 +25,112 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Thay đổi toàn bộ thanh cuộn */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Thay đổi phần cuộn */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Thay đổi phần track của thanh cuộn */
+::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+/* Thay đổi phần khi hover lên phần cuộn */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.btn-image:hover {
+  cursor: pointer; 
+  filter: brightness(1.1)              ;
+}
+
+.custom-line {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #B3BD64, transparent);
+  filter: drop-shadow(0 0 1px #d3dc8e);
+}
+
+.pagination {
+  z-index: 100;
+  position: absolute;
+  width: 30% !important;
+  left: 35% !important;
+  bottom: -15% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-banner {
+  z-index: 100;
+  position: absolute;
+  width: 30% !important;
+  left: 35% !important;
+  bottom: 33% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .pagination {
+    left: 37% !important;
+    bottom: 9% !important;
+  }
+  .pagination-banner {
+    bottom: 3% !important;
+    scale: 2;
+  }
+}
+
+.swiper-pagination-bullet {
+  z-index: 100;
+  background-color: transparent !important;
+  background-image: url("/images/swiper-dot.png") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 1.5vw !important;
+  height: 1.5vw !important;
+  border-radius: 0%;
+  opacity: 1 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-pagination-bullet {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+  }
+  
+}
+
+.swiper-pagination-bullet-active {
+  z-index: 100;
+  background-color: transparent !important;
+  background-image: url("/images/swiper-active-dot.png") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 2vw !important;
+  height: 2vw !important;
+  border-radius: 0%;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-pagination-bullet-active {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+  }
+  
+}
