@@ -4,7 +4,6 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import News from "@/components/news";
 import SideTab from "@/components/side-tab";
-import Image from "next/image";
 
 export default function Home() {
   return (

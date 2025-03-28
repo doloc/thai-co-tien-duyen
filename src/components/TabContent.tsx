@@ -1,7 +1,7 @@
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { FC } from "react"
 
-const TabContent:FC<{activeIdx: number, onClick: (index: number)=> void, listTab: any[], styleCSS?: String}> = ({ activeIdx, onClick, listTab, styleCSS }) => {
+const TabContent:FC<{activeIdx: number, onClick: (index: number)=> void, listTab: any[], styleCSS?: string}> = ({ activeIdx, onClick, listTab, styleCSS }) => {
 
     return (
         <div className={`flex justify-between items-center pc:text-xl text-sm text-[#486C3B] font-semibold ${styleCSS}`}>
