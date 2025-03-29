@@ -6,6 +6,16 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
+const iconList: {
+    thumbnail: string
+}[] = [
+    { thumbnail: "/images/icon-1.png"},
+    { thumbnail: "/images/icon-2.png"},
+    { thumbnail: "/images/icon-3.png"},
+    { thumbnail: "/images/icon-4.png"},
+    { thumbnail: "/images/icon-5.png"},
+]
+
 const Feature = () => {
     type CustomStyleProperties = {
         [key: string]: string | number;
@@ -31,7 +41,9 @@ const Feature = () => {
                 <img src="/images/icon-left.png" alt="" className="absolute left-[22%] mb:-left-[1%] gttb:bottom-[7%] mb:top-[29%] w-[5%] mb:w-[10%] mb:rotate-[95deg]" />
                 <img src="/images/icon-1.png" alt="" className="absolute left-[9%] mb:left-[5%] gttb:bottom-[10%] mb:top-[12%] w-[9%] mb:w-[16%]" />
                 <img src="/images/icon-2.png" alt="" className="absolute left-0 mb:left-[20%] gttb:bottom-[25%] mb:top-[2%] w-[9%] mb:w-[16%]" />
-                <img src="/images/icon-3.png" alt="" className="absolute -left-[4%] mb:left-[40%] top-[44%] mb:-top-[2%] w-[9%] mb:w-[16%]" />
+                <div className="absolute -left-[4%] mb:left-[40%] top-[44%] mb:-top-[2%] w-[9%] mb:w-[16%] items-center bg-cover bg-center bg-no-repeat aspect-[130/144] bg-[image:var(--bg-url)]" style={{'--bg-url': `url(/images/icon-glow.png)`} as CustomStyleProperties}>
+                    <img src="/images/icon-3.png" alt="" className="w-[90%] mt-[20%] ml-[5%]" />
+                </div>
                 <img src="/images/icon-4.png" alt="" className="absolute gttb:-left-[1%] mb:right-[23%] top-[25%] mb:top-[1%] w-[9%] mb:w-[16%]" />
                 <img src="/images/icon-5.png" alt="" className="absolute gttb:left-[7%] mb:right-[8%] top-[11%] mb:top-[12%] w-[9%] mb:w-[16%]" />
                 <img src="/images/icon-left-2.png" alt="" className="absolute gttb:left-[20%] mb:right-[2%] top-[6%] mb:top-[28%] w-[5%] mb:w-[10%] mb:rotate-[90deg]" />
@@ -44,10 +56,6 @@ const Feature = () => {
             <img src="/images/pc-feature-title.png" alt="Title" className="mb:hidden -mt-[1%] w-[62%] object-contain" />
             <img src="/images/mb-feature-title.png" alt="Title" className="gttb:hidden mt-[35%] w-full object-contain" />
             <div className="relative top-[1%] mb:top-[3%] w-[71%] mb:w-full flex justify-center bg-cover bg-center bg-no-repeat aspect-[378/193] mb:aspect-[5/4] mb:bg-[image:var(--bg-mobile-url)] bg-[image:var(--bg-pc-url)]" style={{'--bg-mobile-url': `url(/images/mb-banner-shape.png)`, '--bg-pc-url': `url(/images/pc-banner-shape.png)`} as CustomStyleProperties}>
-                {/* <div className="absolute top-[6%] left-[21%] mb:left-[8%] w-[56%] mb:w-[84%] h-auto">
-                    <img src="/images/banner-1.jpg" alt="Title" className="w-full object-contain" />
-                </div> */}
-
                 <div className="absolute top-[6%] left-[21%] mb:left-[8%] w-[56%] mb:w-[84%] h-auto">
                     <Swiper
                         modules={[ Navigation, Pagination, Autoplay]}

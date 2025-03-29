@@ -5,10 +5,6 @@ const Footer = () => {
 
     return (
         <div className="relative text-[1.2vw] mb:text-[2.4vw] text-[#587040] font-semibold w-full flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat aspect-[1920/256] mb:aspect-[8/3] mb:bg-[image:var(--bg-mobile-url)] bg-[image:var(--bg-pc-url)]" style={{'--bg-mobile-url': `url(/images/mb-bg-footer.jpg)`, '--bg-pc-url': `url(/images/pc-bg-footer.jpg)`} as CustomStyleProperties}>
-            <div className="w-full flex justify-center gap-[2%]">
-                <img className='w-[5%] mb:w-[10%]' src="/images/event-loidai/logo-vng.png" alt="" />
-                <img className='w-[5%] mb:w-[10%]' src="/images/event-loidai/logo-kingsoft.png" alt="" />
-            </div>
             <div className="mb:hidden mt-[1%] flex flex-col items-center">
                 <img src="/images/logo-zagoo.png" alt="" className="w-[12%]" />
                 <span>Công ty TNHH Giải Trí ZIE</span>

@@ -63,7 +63,7 @@ const News = () => {
             <img src="/images/mb-news-title.png" alt="Title" className="gttb:hidden mt-[2%] w-[full object-contain" />
             <div className="relative flex flex-col justify-start items-end mb:items-center w-[69%] mb:w-full bg-cover bg-center bg-no-repeat aspect-[1330/472] mb:aspect-[640/771] mb:bg-[image:var(--bg-mobile-url)] bg-[image:var(--bg-pc-url)]"
             style={{'--bg-mobile-url': `url(/images/mb-news-shape.png)`, '--bg-pc-url': `url(/images/pc-news-shape.png)`} as CustomStyleProperties}>
-                    {newsList != null && newsList.length > 0 && <div className="absolute top-[3.5%] mb:top-[2%] left-[3.1%] mb:left-[4.5%] w-1/2 mb:w-[95%] flex flex-col items-center">
+                    {newsList != null && newsList.length > 0 && <div className="absolute top-[3.5%] mb:top-[2%] left-[3.2%] mb:left-[4.5%] w-[50%] mb:w-[95%] flex flex-col items-center">
                     <Swiper
                         modules={[ Navigation, Pagination, Autoplay]}
                         grabCursor={true}
@@ -95,16 +95,16 @@ const News = () => {
                             listTab={listTab}
                             styleCSS=""
                         />
-                        <div className="z-20 mt-[4%] flex flex-col gap-2 overflow-visible overflow-y-hidden">
+                        <div className="z-20 mt-[4%] flex flex-col gap-[0.5vw] overflow-visible overflow-y-hidden">
                             {
                                 newsList != null && newsList.length > 0 && newsList.slice(0, 6).map((val, idx) => (
-                                    <div key={idx} className="relative w-full flex flex-col items-center gap-4 mb:gap-2">
+                                    <div key={idx} className="relative w-full flex flex-col items-center gap-0 mb:gap-[2vw]">
                                         {idx < 2 ? 
                                             <img src="/images/hot-news.png" alt="Title" className="absolute left-[2%] w-[12%]" /> : <></>
                                         }
-                                        <div key={idx} className={cn("w-[70%] mb:w-[60%] flex justify-between text-[#57744C] text-base mb:text-xs", idx < 2 ? "text-[#122205] font-bold" : "")}>
-                                            <Link href={currentTab.path+"/"+String(val.path+"/"+val.postId)} className="w-[80%] whitespace-nowrap overflow-hidden text-ellipsis pc:text-base hover:text-blue-300">{val.title}</Link>
-                                            <p className='pc:text-base'>{convertTimeStampToDate(val.time)}</p>
+                                        <div key={idx} className={cn("w-[70%] mb:w-[60%] flex justify-between text-[#57744C] text-[1vw] mb:text-xs", idx < 2 ? "text-[#122205] font-bold" : "")}>
+                                            <Link href={currentTab.path+"/"+String(val.path+"/"+val.postId)} className="w-[80%] whitespace-nowrap overflow-hidden text-ellipsis hover:text-blue-300">{val.title}</Link>
+                                            <p className=''>{convertTimeStampToDate(val.time)}</p>
                                         </div>
                                         <div className="custom-line"></div>
                                     </div>
@@ -112,7 +112,7 @@ const News = () => {
                             }
                         </div>
                         <div className="z-20 mt-[2%] flex justify-center items-center">
-                            <Link className="px-3 py-1 bg-cover bg-center bg-no-repeat aspect-[129/40] text-white pc:text-base text-xs flex justify-center items-center"
+                            <Link className="px-3 py-1 bg-cover bg-center bg-no-repeat aspect-[129/40] text-white text-[1vw] mb:text-xs flex justify-center items-center"
                             style={{ backgroundImage: `url(/images/btn-news-active.png)` }} href={currentTab.path}>Xem Thêm</Link>
                         </div>
                     </div>

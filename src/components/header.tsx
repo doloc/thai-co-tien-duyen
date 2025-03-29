@@ -26,7 +26,7 @@ const Header = () => {
           <img className="w-[47%] btn-image" src="/images/mb-btn-payment.png" alt="" />
         </div>
 
-        <nav className="mb:hidden absolute top-[10%] left-[39%] h-[30%] flex items-center font-semibold text-[#FDF3E5] text-xl">
+        <nav className="mb:hidden absolute top-[10%] left-[39%] h-[30%] flex items-center font-semibold text-[#FDF3E5] text-[1vw]">
           <div className="flex hover:text-[#FFEB7D]">
             <img className="w-[10%] object-contain" src="/images/icon-nav.png" alt="" />
             <Link href={""} className="ml-5">TRANG CHỦ</Link>

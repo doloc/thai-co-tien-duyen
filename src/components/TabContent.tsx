@@ -4,7 +4,7 @@ import { FC } from "react"
 const TabContent:FC<{activeIdx: number, onClick: (index: number)=> void, listTab: any[], styleCSS?: string}> = ({ activeIdx, onClick, listTab, styleCSS }) => {
 
     return (
-        <div className={`flex justify-between items-center pc:text-xl text-sm text-[#486C3B] font-semibold ${styleCSS}`}>
+        <div className={`flex justify-between items-center text-[1vw] mb:text-sm text-[#486C3B] font-semibold ${styleCSS}`}>
             {
                 listTab.map((val, idx) => (
                     idx === activeIdx ?
