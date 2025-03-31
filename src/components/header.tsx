@@ -1,10 +1,13 @@
 'use client'
-import { useState } from "react";
-import { Menu, X, Hexagon as Dragon } from 'lucide-react';
+import { FC, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-const Header = () => {
+const Header: FC<{
+    onScrollToNews?: () => void;
+}> = ({onScrollToNews}) => {
+  
+
   type CustomStyleProperties = {
     [key: string]: string | number;
   };
@@ -12,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="z-50 w-full bg-cover bg-center bg-no-repeat aspect-[1920/169] mb:aspect-[4/1] bg-[image:var(--bg-pc-url)] mb:bg-[image:var(--bg-mobile-url)] text-white fixed"
+      <header className="z-[100] w-full bg-cover bg-center bg-no-repeat aspect-[1920/169] mb:aspect-[4/1] bg-[image:var(--bg-pc-url)] mb:bg-[image:var(--bg-mobile-url)] text-white fixed"
         style={{'--bg-mobile-url': `url(/images/bg-mb-header.png)`, '--bg-pc-url': `url(/images/bg-pc-header.png)`} as CustomStyleProperties}>
         <img className='absolute w-[7.5%] mb:w-[19%] top-[7%] left-[9.5%] mb:left-[3%]' src="/images/Icon-App.png" alt="" />
         
@@ -31,11 +34,11 @@ const Header = () => {
             <img className="w-[10%] object-contain" src="/images/icon-nav.png" alt="" />
             <Link href={""} className="ml-5">TRANG CHỦ</Link>
           </div>
-          <div className="flex ml-5 hover:text-[#FFEB7D]">
+          <div className="flex ml-5 hover:text-[#FFEB7D]" onClick={onScrollToNews}>
             <img className="w-[10%] object-contain" src="/images/icon-nav.png" alt="" />
             <Link href={""} className="ml-5">TIN TỨC</Link>
           </div>
-          <div className="flex ml-5 hover:text-[#FFEB7D]">
+          <div className="flex ml-5 hover:text-[#FFEB7D]" onClick={onScrollToNews}>
             <img className="w-[10%] object-contain" src="/images/icon-nav.png" alt="" />
             <Link href={""} className="ml-5">SỰ KIỆN</Link>
           </div>

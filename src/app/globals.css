@@ -2,51 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
-/* Thay đổi toàn bộ thanh cuộn */
+/* Dành cho Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
-/* Thay đổi phần cuộn */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 6px;
+/* Dành cho Firefox */
+html {
+  scrollbar-width: none;
 }
 
-/* Thay đổi phần track của thanh cuộn */
-::-webkit-scrollbar-track {
-  background: #ccc;
-  border-radius: 6px;
+/* Dành cho IE, Edge (phiên bản cũ) */
+body {
+  -ms-overflow-style: none;
 }
 
-/* Thay đổi phần khi hover lên phần cuộn */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 .btn-image:hover {
   cursor: pointer; 
@@ -93,7 +63,7 @@ body {
   }
 }
 
-.swiper-pagination-bullet {
+.pagination > .swiper-pagination-bullet {
   z-index: 100;
   background-color: transparent !important;
   background-image: url("/images/swiper-dot.png") !important;
@@ -107,14 +77,14 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .swiper-pagination-bullet {
+  .pagination > .swiper-pagination-bullet {
     width: 2.5vw !important;
     height: 2.5vw !important;
   }
   
 }
 
-.swiper-pagination-bullet-active {
+.pagination > .swiper-pagination-bullet-active {
   z-index: 100;
   background-color: transparent !important;
   background-image: url("/images/swiper-active-dot.png") !important;
@@ -128,7 +98,49 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .swiper-pagination-bullet-active {
+  .pagination > .swiper-pagination-bullet-active {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+  }
+  
+}
+
+.pagination-banner > .swiper-pagination-bullet {
+  z-index: 100;
+  background-color: transparent !important;
+  background-image: url("/images/banner-swiper-dot.png") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 2vw !important;
+  height: 2vw !important;
+  border-radius: 0%;
+  opacity: 1 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .pagination-banner > .swiper-pagination-bullet {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+  }
+  
+}
+
+.pagination-banner > .swiper-pagination-bullet-active {
+  z-index: 100;
+  background-color: transparent !important;
+  background-image: url("/images/banner-swiper-active-dot.png") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 2.5vw !important;
+  height: 2.5vw !important;
+  border-radius: 0%;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .pagination-banner > .swiper-pagination-bullet-active {
     width: 2.5vw !important;
     height: 2.5vw !important;
   }

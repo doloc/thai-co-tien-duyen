@@ -63,31 +63,32 @@ const News = () => {
             <img src="/images/mb-news-title.png" alt="Title" className="gttb:hidden mt-[2%] w-[full object-contain" />
             <div className="relative flex flex-col justify-start items-end mb:items-center w-[69%] mb:w-full bg-cover bg-center bg-no-repeat aspect-[1330/472] mb:aspect-[640/771] mb:bg-[image:var(--bg-mobile-url)] bg-[image:var(--bg-pc-url)]"
             style={{'--bg-mobile-url': `url(/images/mb-news-shape.png)`, '--bg-pc-url': `url(/images/pc-news-shape.png)`} as CustomStyleProperties}>
-                    {newsList != null && newsList.length > 0 && <div className="absolute top-[3.5%] mb:top-[2%] left-[3.2%] mb:left-[4.5%] w-[50%] mb:w-[95%] flex flex-col items-center">
-                    <Swiper
-                        modules={[ Navigation, Pagination, Autoplay]}
-                        grabCursor={true}
-                        centeredSlides={true}
-                        slidesPerView={1}
-                        loop={true}
-                        pagination={{
-                            el: ".pagination",
-                            clickable: true,
-                        }}
-                        autoplay={{ delay: 3000 }}
-                        className="pc:w-full pc:h-full tb:w-[95%] mb:w-[95%]"
-                    >                            
-                        {
-                            newsList.map((val, idx) => (
-                                <SwiperSlide key={idx} className='relative sec2-swiper-slide' onClick={() => router.push("/tin-tuc/"+String(val.path))}>
-                                    <img src={String(val.thumbnail)} alt="" className='w-full tb:w-[97%] mb:w-[97%]' />
-                                </SwiperSlide>
-                            ))
-                        }
-                    </Swiper>
-                    <div className="pagination"></div>
-                </div>}
-                    
+                    <div className="absolute top-[3.5%] mb:top-[2%] left-[3.2%] mb:left-[4.5%] w-[50%] mb:w-[95%] flex flex-col items-center">
+                        <Swiper
+                            modules={[ Navigation, Pagination, Autoplay]}
+                            grabCursor={true}
+                            centeredSlides={true}
+                            slidesPerView={1}
+                            loop={true}
+                            pagination={{
+                                el: ".pagination",
+                                clickable: true,
+                            }}
+                            autoplay={{ delay: 3000 }}
+                            className="pc:w-full pc:h-full tb:w-[95%] mb:w-[95%]"
+                        >           
+                            <SwiperSlide className='relative sec2-swiper-slide'>
+                                <img src='/images/event-banner-1.jpg' alt="" className='w-full tb:w-[97%] mb:w-[97%]' />
+                            </SwiperSlide>
+                            <SwiperSlide className='relative sec2-swiper-slide'>
+                                <img src='/images/event-banner-2.jpg' alt="" className='w-full tb:w-[97%] mb:w-[97%]' />
+                            </SwiperSlide>
+                            <SwiperSlide className='relative sec2-swiper-slide'>
+                                <img src='/images/banner-1.jpg' alt="" className='w-full tb:w-[97%] mb:w-[97%]' />
+                            </SwiperSlide>
+                        </Swiper>
+                        <div className="pagination"></div>
+                        </div>
                     <div className="w-[44%] mb:w-[85%] mt-[3%] gttb:mr-[1%] mb:mt-[56%]">
                         <TabContent
                             activeIdx={currentTab.idx}
