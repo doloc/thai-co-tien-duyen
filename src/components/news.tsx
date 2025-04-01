@@ -1,8 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import TabContent from "./TabContent";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NewsItemIface } from "@/interface/EntityIface";
 import { getListNews } from "@/helper/api-container";
 import { convertTimeStampToDate } from "@/lib/timeutils";
@@ -13,6 +12,9 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useRouter } from "next/navigation";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TabContent from "./tab-content";
 
 interface tabItem {
     idx: number,
@@ -28,11 +30,14 @@ const listTab: tabItem[] = [
     { idx: 3, name: "Hướng Dẫn", path: "/huong-dan", type: "TUTORIAL" },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 const News = () => {
     type CustomStyleProperties = {
         [key: string]: string | number;
     };
     const router = useRouter()
+    const boxRef = useRef(null);
 
     const [currentTab, setCurrentTab] = useState<tabItem>(listTab[0]);
     const itemClicked = (idx: number) => {
@@ -56,6 +61,25 @@ const News = () => {
     useEffect(() => {
         fetchNewsData(0, 6, currentTab.type);
     }, [currentTab])
+
+    useEffect(() => {
+        gsap.fromTo(
+          boxRef.current,
+          { opacity: 0, y: -150 }, // Bắt đầu ẩn và dịch xuống 100px
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: boxRef.current, // Kích hoạt khi div này vào view
+              start: "top 80%", // Bắt đầu khi top của box cách 80% viewport
+              end: "top 50%", // Kết thúc khi box chạm 50% viewport
+              toggleActions: "play none none none", // Chỉ chạy 1 lần khi vào view
+            },
+          }
+        );
+      }, []);
 
     return (
         <div className="relative flex flex-col items-center w-full bg-cover bg-center bg-no-repeat aspect-[1920/1080] mb:aspect-[640/1135] mb:bg-[image:var(--bg-mobile-url)] bg-[image:var(--bg-pc-url)]" style={{'--bg-mobile-url': `url(/images/mb-bg-news.jpg)`, '--bg-pc-url': `url(/images/pc-bg-news.jpg)`} as CustomStyleProperties}>
@@ -119,7 +143,7 @@ const News = () => {
                     </div>
             </div>
 
-            <div className="w-[48%] mb:w-[90%] mt-[2%] flex flex-col gap-4 mb:gap-2">
+            <div ref={boxRef} className="w-[48%] mb:w-[90%] mt-[2%] flex flex-col gap-4 mb:gap-2">
                 <div className="flex justify-between">
                     <img src="/images/huong-dan-nap-the.png" alt="" className="w-[49%] object-contain btn-image" />
                     <img src="/images/dieu-khoan-su-dung.png" alt="" className="w-[49%] object-contain btn-image" />

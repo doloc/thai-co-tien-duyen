@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 const images = {
     linhKhi: ["/images/icon-1.png", "/images/icon-2.png", "/images/icon-3.png", "/images/icon-4.png", "/images/icon-5.png"],
@@ -21,7 +21,7 @@ const characterImages = [
     { character: "/images/character-2.png", ssr: "/images/icon-ssr-2.png", faction: "/images/icon-faction-2.png", role: "/images/icon-role-2.png" },
 ];
 
-const Character = () => {
+const Character = forwardRef<HTMLDivElement, {}>((props, ref) => {
     type CustomStyleProperties = {
         [key: string]: string | number;
     };
@@ -29,13 +29,13 @@ const Character = () => {
     const [currentCharacter, setCurrentCharacter] = useState(2);
 
     return (
-    <div className="relative w-full flex flex-col items-center">
+    <div ref={ref} className="relative w-full flex flex-col items-center">
         {/* Button Switch */}
         <div className="z-50 absolute mb:relative top-0 mb:top-0 w-[30%] mb:w-[60%] flex justify-between font-semibold mb:text-xs">
             {(Object.keys(images) as Array<keyof typeof images>).map((key) => (
             <button
                 key={key}
-                className={`w-[31%] flex justify-center items-center bg-cover bg-center bg-no-repeat aspect-[11/4] ${selectedCategory === key ? "bg-[image:var(--bg-active)]" : "bg-[image:var(--bg)]"}`}
+                className={`w-[31%] flex justify-center items-center bg-cover bg-center bg-no-repeat aspect-[11/4] ${selectedCategory === key ? "bg-[image:var(--bg-active)] text-[#3A651C]" : "bg-[image:var(--bg)] t"}`}
                 style={{'--bg': `url(/images/bg-btn.png)`, '--bg-active': `url(/images/bg-clicked-btn.png)`} as CustomStyleProperties}
                 onClick={() => setSelectedCategory(key as keyof typeof images)}
             >
@@ -46,7 +46,7 @@ const Character = () => {
         
         {/* Background */}
         <div className="relative top-[1%] w-[71%] mb:w-full flex justify-center bg-cover bg-center bg-no-repeat aspect-[1423/936] mb:aspect-[640/773] bg-[image:var(--bg-pc-url)] mb:bg-[image:var(--bg-mobile-url)] " style={{'--bg-mobile-url': `url(/images/mb-bg-shape.png)`, '--bg-pc-url': `url(/images/pc-bg-shape.png)`} as CustomStyleProperties}>
-            <img src={characterImages[currentCharacter].character} alt="character" className="-mt-[2%] mb:mt-[8%] mb:ml-[16%] w-[50%] mb:w-[90%] object-contain" />
+            <img src={characterImages[currentCharacter].character} alt="character" className="-mt-[2%] mb:mt-[8%] mb:ml-[13%] w-[50%] mb:w-[87%] object-contain" />
             {images[selectedCategory].map((icon, index) => (
                 index == 0 ? <div className={`hover:cursor-pointer flex justify-center items-center absolute left-[9%] mb:left-[5%] gttb:bottom-[10%] mb:top-[12%] w-[9%] mb:w-[16%] ${currentCharacter == index ? "bg-cover bg-center bg-no-repeat aspect-[130/144] bg-[image:var(--bg-url)]" : ""}`} 
                 style={{'--bg-url': `url(/images/icon-glow.png)`} as CustomStyleProperties}
@@ -89,6 +89,6 @@ const Character = () => {
         </button>
     </div>
     );
-}
+});
 
 export default Character
